@@ -15,6 +15,7 @@ class PhotoCellViewController : UICollectionViewController
     
     struct Storyboard {
         static let photoCell = "PhotoCell"
+        static let sectionHeaderView = "SectionHeaderView"
         static let leftAndRightPaddings: CGFloat = 2.0
         static let numberOfItemPerRows: CGFloat = 3.0
     }
@@ -48,8 +49,13 @@ class PhotoCellViewController : UICollectionViewController
         return cell
     }
     
-    
-    sectionon
-    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let sectionHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Storyboard.sectionHeaderView, for: indexPath) as! SectionHeaderView
+        
+        let photoCategory = photos[indexPath.section]
+        sectionHeaderView.photoCategory = photoCategory
+        
+        return sectionHeaderView
+    }
     
 }

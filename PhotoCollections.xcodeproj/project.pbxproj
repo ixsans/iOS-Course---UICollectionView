@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		46053F671F9B920100A54AEF /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46053F661F9B920100A54AEF /* PhotoCell.swift */; };
 		46053F691F9B964400A54AEF /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46053F681F9B964400A54AEF /* PhotoCollectionViewController.swift */; };
+		46053F6B1F9BA22C00A54AEF /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46053F6A1F9BA22C00A54AEF /* SectionHeaderView.swift */; };
 		46FD55DB1F9329D60060939B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FD55DA1F9329D60060939B /* AppDelegate.swift */; };
 		46FD55E01F9329D60060939B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FD55DE1F9329D60060939B /* Main.storyboard */; };
 		46FD55E21F9329D60060939B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46FD55E11F9329D60060939B /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		46053F661F9B920100A54AEF /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		46053F681F9B964400A54AEF /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		46053F6A1F9BA22C00A54AEF /* SectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
 		46FD55D71F9329D60060939B /* PhotoCollections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCollections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FD55DA1F9329D60060939B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46FD55DF1F9329D60060939B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			children = (
 				46FD55DE1F9329D60060939B /* Main.storyboard */,
 				46053F661F9B920100A54AEF /* PhotoCell.swift */,
+				46053F6A1F9BA22C00A54AEF /* SectionHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			files = (
 				46FD55ED1F939D1A0060939B /* Photo.swift in Sources */,
 				46053F671F9B920100A54AEF /* PhotoCell.swift in Sources */,
+				46053F6B1F9BA22C00A54AEF /* SectionHeaderView.swift in Sources */,
 				46FD55DB1F9329D60060939B /* AppDelegate.swift in Sources */,
 				46053F691F9B964400A54AEF /* PhotoCollectionViewController.swift in Sources */,
 			);

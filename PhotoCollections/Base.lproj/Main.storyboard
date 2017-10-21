@@ -20,13 +20,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="Ah4-Pt-mgp">
                             <size key="itemSize" width="200" height="200"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="7Ih-ot-iSM" customClass="PhotoCell" customModule="PhotoCollections" customModuleProvider="target">
-                                <rect key="frame" x="88" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="88" y="50" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -48,6 +48,37 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionHeaderView" id="cVg-Yv-8Bl" customClass="SectionHeaderView" customModule="PhotoCollections" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="food" translatesAutoresizingMaskIntoConstraints="NO" id="ySZ-Tl-Kpw">
+                                    <rect key="frame" x="15" y="10" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="L1j-o2-h0V"/>
+                                        <constraint firstAttribute="width" constant="30" id="rMt-hv-7gZ"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5td-p1-LOc">
+                                    <rect key="frame" x="53" y="6" width="125" height="44"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="5td-p1-LOc" firstAttribute="top" secondItem="cVg-Yv-8Bl" secondAttribute="top" constant="6" id="1fk-tt-h4q"/>
+                                <constraint firstItem="5td-p1-LOc" firstAttribute="leading" secondItem="ySZ-Tl-Kpw" secondAttribute="trailing" constant="8" id="4vc-gk-BLS"/>
+                                <constraint firstItem="ySZ-Tl-Kpw" firstAttribute="leading" secondItem="cVg-Yv-8Bl" secondAttribute="leading" constant="15" id="FER-Wt-E0F"/>
+                                <constraint firstAttribute="bottom" secondItem="ySZ-Tl-Kpw" secondAttribute="bottom" constant="10" id="Hmc-ur-IXq"/>
+                                <constraint firstAttribute="bottom" secondItem="5td-p1-LOc" secondAttribute="bottom" id="KUh-yS-IiZ"/>
+                                <constraint firstItem="ySZ-Tl-Kpw" firstAttribute="top" secondItem="cVg-Yv-8Bl" secondAttribute="top" constant="10" id="cJu-Vq-nOf"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="categoryImageView" destination="ySZ-Tl-Kpw" id="9hg-a3-kwK"/>
+                                <outlet property="categoryTitleLabel" destination="5td-p1-LOc" id="WOW-es-yya"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="0V4-3L-z69" id="nPy-8V-TSl"/>
                             <outlet property="delegate" destination="0V4-3L-z69" id="u9G-Kf-Y4Q"/>
@@ -85,5 +116,6 @@
     </scenes>
     <resources>
         <image name="f1" width="300" height="168"/>
+        <image name="food" width="64" height="64"/>
     </resources>
 </document>
