@@ -14,7 +14,7 @@
         <scene sceneID="YuE-7d-74i">
             <objects>
                 <collectionViewController id="0V4-3L-z69" customClass="PhotoCellViewController" customModule="PhotoCollections" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="bQ3-W1-GlK">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="bQ3-W1-GlK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,10 +85,45 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Photos" id="Ihg-m6-lDD"/>
+                    <connections>
+                        <segue destination="HsV-rc-bYY" kind="show" identifier="ShowImageDetail" id="4Un-Mc-FL8"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Px7-t7-oM6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1688.8" y="-179.46026986506749"/>
+        </scene>
+        <!--Photo Detail View Controller-->
+        <scene sceneID="Dus-Ur-Qgd">
+            <objects>
+                <viewController id="HsV-rc-bYY" customClass="PhotoDetailViewController" customModule="PhotoCollections" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pqW-62-Acs"/>
+                        <viewControllerLayoutGuide type="bottom" id="mEF-dz-Xay"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uiS-uB-vhe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="f1" translatesAutoresizingMaskIntoConstraints="NO" id="rca-jd-X33">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rca-jd-X33" firstAttribute="leading" secondItem="uiS-uB-vhe" secondAttribute="leading" id="NXq-nC-ne7"/>
+                            <constraint firstAttribute="trailing" secondItem="rca-jd-X33" secondAttribute="trailing" id="XAX-Er-Ajn"/>
+                            <constraint firstItem="rca-jd-X33" firstAttribute="top" secondItem="pqW-62-Acs" secondAttribute="bottom" id="jfb-Jy-du4"/>
+                            <constraint firstItem="mEF-dz-Xay" firstAttribute="top" secondItem="rca-jd-X33" secondAttribute="bottom" id="oB0-pX-3SW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="rca-jd-X33" id="gbd-St-UTI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ou0-Cx-RI7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2479" y="-179"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I6q-Dy-XdW">
@@ -98,6 +133,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="cg7-2C-sKf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.33725490196078434" green="0.80784313725490198" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>

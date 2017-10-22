@@ -16,6 +16,7 @@ class PhotoCellViewController : UICollectionViewController
     struct Storyboard {
         static let photoCell = "PhotoCell"
         static let sectionHeaderView = "SectionHeaderView"
+        static let showDetailVC = "ShowImageDetail"
         static let leftAndRightPaddings: CGFloat = 2.0
         static let numberOfItemPerRows: CGFloat = 3.0
     }
@@ -56,6 +57,24 @@ class PhotoCellViewController : UICollectionViewController
         sectionHeaderView.photoCategory = photoCategory
         
         return sectionHeaderView
+    }
+    
+    var selectedImage: String!
+    
+    // MARK: - UICollectionViewDelegate
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        selectedImage = photos[indexPath.section].imageNames[indexPath.row]
+        performSegue(withIdentifier: Storyboard.showDetailVC, sender: nil)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Storyboard.showDetailVC {
+            let destinationVC = segue.destination as! PhotoDetailViewController
+            destinationVC.image = selectedImage
+        }
     }
     
 }
