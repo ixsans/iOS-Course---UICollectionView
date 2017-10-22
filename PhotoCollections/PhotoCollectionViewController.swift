@@ -32,6 +32,23 @@ class PhotoCellViewController : UICollectionViewController
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
     }
     
+    // MARK: - Action
+    
+    
+    @IBAction func addPhoto(_ sender: Any) {
+        // 1 - get a random image
+        let firstCategoryImageNames = photos[0].imageNames
+        let randomIndex = Int(arc4random()) % firstCategoryImageNames.count
+        let randomImage = photos[0].imageNames[randomIndex]
+        
+        // 2 - add image to data model
+        photos[0].imageNames.append(randomImage)
+        
+        // 3 - update collectionview
+        let insertedIndexPath = IndexPath(item: firstCategoryImageNames.count, section: 0)
+        collectionView?.insertItems(at: [insertedIndexPath])
+    }
+    
     // MARK: - UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return photos.count
