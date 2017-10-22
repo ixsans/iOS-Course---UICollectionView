@@ -35,15 +35,49 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="f1" translatesAutoresizingMaskIntoConstraints="NO" id="y1a-h4-iUu">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="199"/>
                                         </imageView>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9s1-bU-2Re">
+                                            <rect key="frame" x="8" y="8" width="20" height="20"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hJB-ty-yDU">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mB-ha-Y9G">
+                                                        <rect key="frame" x="4" y="4" width="12" height="12"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="12" id="bi5-cO-v8v"/>
+                                                            <constraint firstAttribute="width" constant="12" id="kuk-1A-Bsu"/>
+                                                        </constraints>
+                                                        <state key="normal" image="ic_close"/>
+                                                        <connections>
+                                                            <action selector="deleteButtonDidTap:" destination="7Ih-ot-iSM" eventType="touchUpInside" id="5AN-PE-acq"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="6mB-ha-Y9G" secondAttribute="bottom" constant="4" id="N9h-j9-Gn3"/>
+                                                    <constraint firstItem="6mB-ha-Y9G" firstAttribute="top" secondItem="hJB-ty-yDU" secondAttribute="top" constant="4" id="ha5-0h-0GR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="6mB-ha-Y9G" secondAttribute="trailing" constant="4" id="uew-Js-lCJ"/>
+                                                    <constraint firstItem="6mB-ha-Y9G" firstAttribute="leading" secondItem="hJB-ty-yDU" secondAttribute="leading" constant="4" id="xO1-0L-3kh"/>
+                                                </constraints>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="5gk-6H-rbC"/>
+                                                <constraint firstAttribute="width" constant="20" id="CZC-GS-R9V"/>
+                                            </constraints>
+                                            <blurEffect style="extraLight"/>
+                                        </visualEffectView>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="y1a-h4-iUu" secondAttribute="trailing" constant="-8" id="9Cu-mu-mov"/>
                                     <constraint firstItem="y1a-h4-iUu" firstAttribute="top" secondItem="7Ih-ot-iSM" secondAttribute="topMargin" constant="-8" id="EJR-Uu-Wee"/>
+                                    <constraint firstItem="9s1-bU-2Re" firstAttribute="leading" secondItem="7Ih-ot-iSM" secondAttribute="leading" constant="8" id="f6x-rs-kfn"/>
                                     <constraint firstItem="y1a-h4-iUu" firstAttribute="leading" secondItem="7Ih-ot-iSM" secondAttribute="leadingMargin" constant="-8" id="lkM-5f-W4h"/>
                                     <constraint firstItem="y1a-h4-iUu" firstAttribute="bottom" secondItem="7Ih-ot-iSM" secondAttribute="bottomMargin" constant="7" id="vtq-Hn-jyi"/>
+                                    <constraint firstItem="9s1-bU-2Re" firstAttribute="top" secondItem="7Ih-ot-iSM" secondAttribute="top" constant="8" id="xNs-p3-SRP"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="deleteButtonBackgroundView" destination="9s1-bU-2Re" id="lYI-fp-pG6"/>
                                     <outlet property="photoImageView" destination="y1a-h4-iUu" id="I5f-7G-E7b"/>
                                 </connections>
                             </collectionViewCell>
@@ -92,6 +126,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="JuC-0j-5x1" id="Wl1-Lv-GJC"/>
                         <segue destination="HsV-rc-bYY" kind="show" identifier="ShowImageDetail" id="4Un-Mc-FL8"/>
                     </connections>
                 </collectionViewController>
@@ -159,5 +194,6 @@
     <resources>
         <image name="f1" width="300" height="168"/>
         <image name="foods" width="64" height="64"/>
+        <image name="ic_close" width="32" height="32"/>
     </resources>
 </document>

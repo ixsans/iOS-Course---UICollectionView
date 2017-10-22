@@ -11,6 +11,8 @@ import UIKit
 class PhotoCellViewController : UICollectionViewController
 {
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     var photos: [PhotoCategory] = PhotoLibrary.fetchPhotos()
     
     struct Storyboard {
@@ -30,6 +32,8 @@ class PhotoCellViewController : UICollectionViewController
         
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
     
     // MARK: - Action
@@ -63,7 +67,8 @@ class PhotoCellViewController : UICollectionViewController
         let imageNames = photos[indexPath.section].imageNames
         let imageName = imageNames[indexPath.row]
         cell.imageName = imageName
-
+        cell.delegate = self
+        
         return cell
     }
     
@@ -74,6 +79,20 @@ class PhotoCellViewController : UICollectionViewController
         sectionHeaderView.photoCategory = photoCategory
         
         return sectionHeaderView
+    }
+    
+    // MARK - Editing mode
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        addButton.isEnabled = !editing
+        if let indexPaths = collectionView?.indexPathsForVisibleItems {
+            for indexPath in indexPaths {
+                if let cell = collectionView?.cellForItem(at: indexPath) as? PhotoCell {
+                    cell.isEditing = editing
+                }
+            }
+        }
     }
     
     var selectedImage: String!
@@ -94,4 +113,17 @@ class PhotoCellViewController : UICollectionViewController
         }
     }
     
+}
+
+extension PhotoCellViewController : PhotoCellDelegate
+{
+    func delete(cell: PhotoCell) {
+        if let indexPath = collectionView?.indexPath(for: cell) {
+            // 1. Delete photo from data source
+            photos[indexPath.section].imageNames.remove(at: indexPath.item)
+            
+            // 2. Delete the photo cell at that index path from collection view
+            collectionView?.deleteItems(at: [indexPath])
+        }
+    }
 }
